@@ -27,8 +27,8 @@ vim.keymap.set("n", "<leader>k", "<cmd>tabnew<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>h", "<cmd>Ex<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>dk", "Dk$p", { silent = true })
-vim.keymap.set("n", "<leader>dj", "Dj$p", { silent = true })
+vim.keymap.set("n", "<leader>dk", "^Dk$pjddk$", { silent = true })
+vim.keymap.set("n", "<leader>dj", "^Dj$pkddj$", { silent = true })
 
 local tab_config = {
   [2] = {"*.lua", "*.html"},
