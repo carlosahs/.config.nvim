@@ -31,6 +31,9 @@ vim.keymap.set("n", "<leader>dj", "j^Dk$pjddk$", { silent = true })
 
 vim.keymap.set("t", "<c-[><c-[>", "<c-\\><c-n>")
 
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
 local tab_config = {
   ["*.lua"] = {
     tabstop = 2,
