@@ -29,6 +29,8 @@ vim.keymap.set("n", "<leader>h", "<cmd>Ex<CR>", { silent = true })
 vim.keymap.set("n", "<leader>dk", "^Dk$pjddk$", { silent = true })
 vim.keymap.set("n", "<leader>dj", "j^Dk$pjddk$", { silent = true })
 
+vim.keymap.set("t", "<c-[><c-[>", "<c-\\><c-n>")
+
 local tab_config = {
   [2] = {"*.lua", "*.html"},
   [4] = {"*.ts", "*.js", "*.rs"},
