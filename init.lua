@@ -1,7 +1,7 @@
 require("config.lazy")
 require("lsp")
 
-vim.cmd("colorscheme tokyonight-storm")
+vim.cmd("colorscheme tokyonight-night")
 
 vim.o.mouse = ""
 
