@@ -32,22 +32,54 @@ vim.keymap.set("n", "<leader>dj", "j^Dk$pjddk$", { silent = true })
 vim.keymap.set("t", "<c-[><c-[>", "<c-\\><c-n>")
 
 local tab_config = {
-  [2] = {"*.lua", "*.html"},
-  [4] = {"*.ts", "*.js", "*.rs"},
-  [8] = {"*.go"}
+  ["*.lua"] = {
+    tabstop = 2,
+    shiftwidth = 2,
+    softtabstop = 0,
+    expandtab = 2,
+  },
+  ["*.html"] = {
+    tabstop = 2,
+    shiftwidth = 2,
+    softtabstop = 0,
+    expandtab = 2,
+  },
+  ["*.ts"] = {
+    tabstop = 4,
+    shiftwidth = 4,
+    softtabstop = 0,
+    expandtab = 4,
+  },
+  ["*.js"] = {
+    tabstop = 4,
+    shiftwidth = 4,
+    softtabstop = 0,
+    expandtab = 4,
+  },
+  ["*.rs"] = {
+    tabstop = 4,
+    shiftwidth = 4,
+    softtabstop = 0,
+    expandtab = 4,
+  },
+  ["*.go"] = {
+    tabstop = 8,
+    shiftwidth = 0,
+    softtabstop = 0,
+    expandtab = false,
+  },
 }
-for n, pattern in pairs(tab_config) do
+for pattern, config in pairs(tab_config) do
   vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     pattern = pattern,
     group = vim.api.nvim_create_augroup(
-      string.format("my-indent-rules-%d", n),
+      string.format("my-%s-indent-rules", string.gsub(pattern, "*.", "")),
       { clear = false }
     ),
     callback = function(ev)
-      vim.bo[ev.buf].tabstop = n
-      vim.bo[ev.buf].shiftwidth = n
-      vim.bo[ev.buf].softtabstop = 0
-      vim.bo[ev.buf].expandtab = true
+      for key, value in pairs(config) do
+        vim.bo[ev.buf][key] = value
+      end
     end,
   })
 end
