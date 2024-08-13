@@ -21,10 +21,20 @@ local on_attach = function(_, bufnr)
   vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 end
 
-local lspservers = {"html", "gopls", "htmx", "rust_analyzer", "tsserver"}
-for _, lspserver in ipairs(lspservers) do
-  lspconfig[lspserver].setup {
+local lspservers = { 
+  html = { on_attach = on_attach },
+  gopls = { on_attach = on_attach },
+  htmx = { on_attach = on_attach },
+  rust_analyzer = { on_attach = on_attach },
+  tsserver = {
     on_attach = on_attach,
-  }
+    init_options = {
+      -- Do not insert extra period when completing
+      completionDisableFilterText = true,
+    },
+  },
+}
+for lspserver, lspserver_config in pairs(lspservers) do
+  lspconfig[lspserver].setup(lspserver_config)
 end
 
