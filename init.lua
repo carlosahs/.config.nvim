@@ -29,7 +29,7 @@ vim.keymap.set("n", "<leader>h", "<cmd>Ex<CR>", { silent = true })
 vim.keymap.set("n", "<leader>dk", "^Dk$pjddk$", { silent = true })
 vim.keymap.set("n", "<leader>dj", "j^Dk$pjddk$", { silent = true })
 
-vim.keymap.set("t", "<c-[><c-[>", "<c-\\><c-n>")
+vim.keymap.set("t", "<c-]><c-[>", "<c-\\><c-n>")
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
