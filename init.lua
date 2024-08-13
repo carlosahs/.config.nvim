@@ -87,5 +87,16 @@ for pattern, config in pairs(tab_config) do
   })
 end
 
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = "*",
+  group = vim.api.nvim_create_augroup(
+    "my-reload-rules",
+    { clear = false }
+  ),
+  callback = function(_)
+    vim.cmd("checktime")
+  end
+})
+
 vim.o.completeopt = "menu,menuone,noinsert"
 
