@@ -1,6 +1,6 @@
 local plugin = {"nvim-telescope/telescope.nvim"}
 plugin.event = "VimEnter"
-plugin.branch = "0.1.x"
+plugin.tag = "0.1.8"
 plugin.dependencies = {
 	"nvim-lua/plenary.nvim",
 	{
@@ -16,7 +16,8 @@ plugin.dependencies = {
 	{
 		"nvim-tree/nvim-web-devicons",
 		enabled = vim.g.have_nerd_fond
-	}
+	},
+  "nvim-treesitter/nvim-treesitter"
 }
 plugin.config = function()
       require('telescope').setup {
