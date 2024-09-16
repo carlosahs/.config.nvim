@@ -71,6 +71,12 @@ local tab_config = {
     softtabstop = 0,
     expandtab = false,
   },
+  ["*.css"] = {
+    tabstop = 4,
+    shiftwidth = 4,
+    softtabstop = 4,
+    expandtab = true,
+  }
 }
 for pattern, config in pairs(tab_config) do
   vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
