@@ -76,7 +76,13 @@ local tab_config = {
     shiftwidth = 4,
     softtabstop = 4,
     expandtab = true,
-  }
+  },
+  ["*.json"] = {
+    tabstop = 4,
+    shiftwidth = 4,
+    softtabstop = 4,
+    expandtab = true,
+  },
 }
 for pattern, config in pairs(tab_config) do
   vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
