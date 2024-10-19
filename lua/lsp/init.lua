@@ -33,6 +33,7 @@ local lspservers = {
       completionDisableFilterText = true,
     },
   },
+  pyright = { on_attach = on_attach },
 }
 for lspserver, lspserver_config in pairs(lspservers) do
   lspconfig[lspserver].setup(lspserver_config)
