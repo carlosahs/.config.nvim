@@ -3,6 +3,7 @@ require("lsp")
 
 vim.cmd("colorscheme tokyonight-night")
 
+vim.o.colorcolumn = "80"
 vim.o.mouse = ""
 
 vim.o.number = true
