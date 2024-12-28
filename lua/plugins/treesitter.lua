@@ -7,7 +7,7 @@ plugin.opts = {
 		enable = true,
 		additional_vim_regex_highlighting = { "ruby" },
 	},
-	indent = { enable = true, disable = { "ruby", "html", "python" }},
+	indent = { enable = true, disable = { "ruby", "html", "python", "rust" }},
 }
 plugin.config = function(_, opts)
 	require("nvim-treesitter.install").prefer_git = true
