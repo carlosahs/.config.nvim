@@ -40,7 +40,7 @@ vim.keymap.set("n", "<leader>dj", "j^Dk$pjddk$", { silent = true })
 vim.keymap.set("t", "<c-]><c-[>", "<c-\\><c-n>")
 
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", leadmultispace = "↦ " }
 
 local tab_config = {
   ["*.lua"] = {
@@ -102,6 +102,9 @@ for pattern, config in pairs(tab_config) do
     callback = function(ev)
       for key, value in pairs(config) do
         vim.bo[ev.buf][key] = value
+        if key == "tabstop" then
+          vim.wo.listchars = "leadmultispace:↦" .. string.rep(" ", value - 1) .. ",tab:» ,trail:·,nbsp:␣"
+        end
       end
     end,
   })
