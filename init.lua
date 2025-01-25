@@ -3,7 +3,14 @@ require("lsp")
 
 vim.cmd("colorscheme tokyonight-night")
 
-vim.o.colorcolumn = "80"
+local cc_default = "80"
+vim.keymap.set("n", "<leader>c", function()
+  vim.api.nvim_buf_call(0, function()
+    vim.b["cc"] = vim.b["cc"] or cc_default
+    vim.wo["cc"] = (vim.wo["cc"] == vim.b["cc"]) and "" or vim.b["cc"]
+  end)
+end)
+
 vim.o.mouse = ""
 
 vim.o.number = true
@@ -112,4 +119,22 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 vim.o.completeopt = "menu,menuone,noinsert"
+
+local cc_values = {
+  ["*.ts"] = "120",
+  ["*.lua"] = "120",
+}
+for pattern, value in pairs(cc_values) do
+  vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = pattern,
+    group = vim.api.nvim_create_augroup(
+      string.format("cc: %s", pattern),
+      { clear = false }
+    ),
+    callback = function(ev)
+      vim.b["cc"] = value
+    end,
+    desc = string.format("Initalize colorcolumn value for %s.", pattern)
+  })
+end
 
