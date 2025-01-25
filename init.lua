@@ -134,7 +134,7 @@ for pattern, value in pairs(cc_values) do
     callback = function(ev)
       vim.b["cc"] = value
     end,
-    desc = string.format("Initalize colorcolumn value for %s.", pattern)
+    desc = string.format("Initalize colorcolumn value for pattern: %s.", pattern)
   })
 end
 
