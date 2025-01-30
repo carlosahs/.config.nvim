@@ -42,7 +42,7 @@ vim.keymap.set("t", "<c-]><c-[>", "<c-\\><c-n>")
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", leadmultispace = "↦ " }
 
-local tab_config = {
+local tab_values = {
   ["*.lua"] = {
     tabstop = 2,
     shiftwidth = 2,
@@ -91,8 +91,14 @@ local tab_config = {
     softtabstop = 4,
     expandtab = true,
   },
+  ["*.cpp"] = {
+    tabstop = 4,
+    shiftwidth = 4,
+    softtabstop = 4,
+    expandtab = true,
+  },
 }
-for pattern, config in pairs(tab_config) do
+for pattern, values in pairs(tab_values) do
   vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     pattern = pattern,
     group = vim.api.nvim_create_augroup(
@@ -100,7 +106,7 @@ for pattern, config in pairs(tab_config) do
       { clear = false }
     ),
     callback = function(ev)
-      for key, value in pairs(config) do
+      for key, value in pairs(values) do
         vim.bo[ev.buf][key] = value
         if key == "tabstop" then
           vim.wo.listchars = "leadmultispace:↦" .. string.rep(" ", value - 1) .. ",tab:» ,trail:·,nbsp:␣"
