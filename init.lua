@@ -97,6 +97,12 @@ local tab_values = {
     softtabstop = 4,
     expandtab = true,
   },
+  ["*.cc"] = {
+    tabstop = 4,
+    shiftwidth = 4,
+    softtabstop = 4,
+    expandtab = true,
+  },
 }
 for pattern, values in pairs(tab_values) do
   vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
