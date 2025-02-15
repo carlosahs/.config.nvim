@@ -34,7 +34,10 @@ local lspservers = {
     },
   },
   pyright = { on_attach = on_attach },
-  clangd = { on_attach = on_attach },
+  clangd = {
+    on_attach = on_attach,
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "cc" },
+  },
 }
 for lspserver, lspserver_config in pairs(lspservers) do
   lspconfig[lspserver].setup(lspserver_config)
