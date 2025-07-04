@@ -5,7 +5,7 @@ plugin.config = {
   direction = "float",
   close_on_exit = true,
   on_create = function(t)
-    t:send(string.format("tmux new-session -A -s %s", vim.fn.getcwd()))
+    t:send("tmux new-session -A -s neovim-session")
   end,
 }
 
