@@ -109,6 +109,12 @@ local tab_values = {
     softtabstop = 2,
     expandtab = true,
   },
+  ["site.webmanifest"] = {
+    tabstop = 2,
+    shiftwidth = 2,
+    softtabstop = 2,
+    expandtab = true,
+  },
 }
 for pattern, values in pairs(tab_values) do
   vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
