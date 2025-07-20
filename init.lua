@@ -97,6 +97,12 @@ local tab_values = {
     softtabstop = 4,
     expandtab = true,
   },
+  ["*.c"] = {
+    tabstop = 4,
+    shiftwidth = 4,
+    softtabstop = 4,
+    expandtab = true,
+  },
   ["*.svg"] = {
     tabstop = 2,
     shiftwidth = 2,
