@@ -78,9 +78,9 @@ local tab_values = {
     expandtab = true,
   },
   ["*.json"] = {
-    tabstop = 4,
-    shiftwidth = 4,
-    softtabstop = 4,
+    tabstop = 2,
+    shiftwidth = 2,
+    softtabstop = 2,
     expandtab = true,
   },
   ["*.cpp"] = {
