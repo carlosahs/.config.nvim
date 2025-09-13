@@ -72,9 +72,9 @@ local tab_values = {
     expandtab = false,
   },
   ["*.css"] = {
-    tabstop = 4,
-    shiftwidth = 4,
-    softtabstop = 4,
+    tabstop = 2,
+    shiftwidth = 2,
+    softtabstop = 2,
     expandtab = true,
   },
   ["*.json"] = {
