@@ -182,12 +182,6 @@ local lazygit = Terminal:new({
   on_open = _on_open,
   on_close = _on_close,
 })
-local tmux = Terminal:new({
-  cmd = "tmux new-session -A -s 0",
-  hidden = true,
-  on_open = _on_open,
-  on_close = _on_close,
-})
 local tmux_cwd = Terminal:new({
   cmd = string.format("tmux new-session -A -s %s", vim.fn.getcwd()),
   hidden = true,
@@ -197,10 +191,6 @@ local tmux_cwd = Terminal:new({
 
 function _lazygit_toggle()
   lazygit:toggle()
-end
-
-function _tmux_toggle()
-  tmux:toggle()
 end
 
 function _tmux_cwd_toggle()
@@ -216,12 +206,6 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<leader>l2",
-  "<cmd>lua _tmux_toggle()<CR>",
-  { noremap = true, silent = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>l3",
   "<cmd>lua _tmux_cwd_toggle()<CR>",
   { noremap = true, silent = true }
 )
