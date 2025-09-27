@@ -199,13 +199,13 @@ end
 
 vim.keymap.set(
   "n",
-  "<leader>l1",
+  "<leader>lh",
   "<cmd>lua _lazygit_toggle()<CR>",
   { noremap = true, silent = true }
 )
 vim.keymap.set(
   "n",
-  "<leader>l2",
+  "<leader>lj",
   "<cmd>lua _tmux_cwd_toggle()<CR>",
   { noremap = true, silent = true }
 )
