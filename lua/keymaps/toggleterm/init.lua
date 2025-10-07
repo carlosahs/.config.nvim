@@ -1,4 +1,8 @@
 local Terminal = require("toggleterm.terminal").Terminal
+local terminals = {
+  lazygit = {},
+  tmux = {},
+}
 
 function _on_open(term)
   vim.cmd("startinsert!")
@@ -11,25 +15,34 @@ function _on_close(term)
   vim.cmd("startinsert!")
 end
 
-local lazygit = Terminal:new({
-  cmd = "lazygit",
-  hidden = true,
-  on_open = _on_open,
-  on_close = _on_close,
-})
-local tmux_cwd = Terminal:new({
-  cmd = string.format("tmux new-session -A -s %s", vim.fn.getcwd()),
-  hidden = true,
-  on_open = _on_open,
-  on_close = _on_close,
-})
-
 function _lazygit_toggle()
+  local cwd = vim.fn.getcwd()
+  local lazygit = terminals.lazygit[cwd]
+  if lazygit == nil then
+    lazygit = Terminal:new({
+      cmd = "lazygit",
+      hidden = true,
+      on_open = _on_open,
+      on_close = _on_close,
+    })
+    terminals.lazygit[cwd] = lazygit
+  end
   lazygit:toggle()
 end
 
 function _tmux_cwd_toggle()
-  tmux_cwd:toggle()
+  local cwd = vim.fn.getcwd()
+  local tmux = terminals.tmux[cwd]
+  if tmux == nil then
+    tmux = Terminal:new({
+      cmd = string.format("tmux new-session -A -s %s", cwd),
+      hidden = true,
+      on_open = _on_open,
+      on_close = _on_close,
+    })
+    terminals.tmux[cwd] = tmux
+  end
+  tmux:toggle()
 end
 
 vim.keymap.set(
