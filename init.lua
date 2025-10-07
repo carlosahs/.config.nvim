@@ -1,24 +1,11 @@
 require("config.lazy")
 require("keymaps")
 require("lsp")
+require("options")
 
 vim.cmd("colorscheme tokyonight-night")
 
-vim.o.mouse = ""
-
-vim.o.number = true
-vim.o.relativenumber = true
-
-vim.o.clipboard = "unnamedplus"
-
-vim.o.cursorline = true
-
-vim.o.hlsearch = true
-
 vim.g.have_nerd_font = false
-
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", leadmultispace = "↦ " }
 
 local tab_values = {
   ["*.lua"] = {
@@ -128,8 +115,6 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     vim.cmd("checktime")
   end
 })
-
-vim.o.completeopt = "menu,menuone,noinsert"
 
 local cc_values = {
   ["*.ts"] = "120",
