@@ -34,14 +34,14 @@ local tab_values = {
     expandtab = true,
   },
   ["*.ts"] = {
-    tabstop = 4,
-    shiftwidth = 4,
+    tabstop = 2,
+    shiftwidth = 2,
     softtabstop = 0,
     expandtab = true,
   },
   ["*.js"] = {
-    tabstop = 4,
-    shiftwidth = 4,
+    tabstop = 2,
+    shiftwidth = 2,
     softtabstop = 0,
     expandtab = true,
   },
