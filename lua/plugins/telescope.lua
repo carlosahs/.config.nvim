@@ -57,12 +57,12 @@ return {
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
-    vim.keymap.set('n', '<leader>gb', function()
+    vim.keymap.set('n', '<leader>aa', function()
       builtin.git_branches(themes.get_dropdown {
         winblend = 10,
         previewer = false,
       })
-    end, { desc = '[G]it [B]ranches search'})
+    end, { desc = '[aa] Git branches search' })
   end
 }
 
