@@ -10,7 +10,7 @@ return {
       enable = true,
       additional_vim_regex_highlighting = { "ruby" },
     },
-    indent = { enable = true, disable = { "ruby", "html", "python", "rust", "typescript" }},
+    indent = { enable = true, disable = { "ruby", "html", "python", "rust", "typescript", "lua" }},
   },
   config = function(_, opts)
     require("nvim-treesitter.install").prefer_git = true
