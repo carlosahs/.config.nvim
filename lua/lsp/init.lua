@@ -10,6 +10,7 @@ vim.lsp.config("*", {
 })
 local lspservers = {
   html = {},
+  htmx = {},
   gopls = {},
   rust_analyzer = {},
   ts_ls = {},
