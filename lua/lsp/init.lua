@@ -3,7 +3,9 @@ local lspservers = {
   htmx = {},
   gopls = {},
   rust_analyzer = {},
-  ts_ls = {},
+  ts_ls = {
+    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "html" },
+  },
   pyright = {},
   clangd = {
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "cc" },
