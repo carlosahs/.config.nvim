@@ -10,7 +10,7 @@ local lspservers = {
   },
 }
 for lspserver, config in pairs(lspservers) do
-  vim.lsp.config[lspserver] = config
+  vim.lsp.config(lspserver, config)
   vim.lsp.enable(lspserver)
 end
 vim.api.nvim_create_autocmd('LspAttach', {
