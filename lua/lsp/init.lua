@@ -1,6 +1,6 @@
 local lspservers = {
   html = {},
-  htmx = {},
+  -- htmx = {},
   gopls = {},
   rust_analyzer = {},
   ts_ls = {
@@ -9,6 +9,16 @@ local lspservers = {
   pyright = {},
   clangd = {
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "cc" },
+  },
+  sourcekit = {
+    on_attach = on_attach,
+    capabilities = {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true,
+        },
+      },
+    },
   },
 }
 for lspserver, config in pairs(lspservers) do
