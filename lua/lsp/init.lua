@@ -1,4 +1,7 @@
 local lspservers = {
+  leanls = {
+    -- cmd_cwd = vim.fs.root(0, { "lakefile.lean", "lakefile.toml" }),
+  },
   html = {},
   -- htmx = {},
   gopls = {},
