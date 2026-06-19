@@ -12,15 +12,16 @@ function _on_open(term)
 end
 
 function _lazygit_toggle()
-  local cwd = vim.fn.getcwd()
-  local lazygit = terminals.lazygit[cwd]
+  local wd = vim.fs.root(0, ".git")
+  local lazygit = terminals.lazygit[wd]
   if lazygit == nil then
     lazygit = Terminal:new({
       cmd = "lazygit",
+      dir = wd,
       hidden = true,
       on_open = _on_open,
     })
-    terminals.lazygit[cwd] = lazygit
+    terminals.lazygit[wd] = lazygit
   end
   lazygit:toggle()
 end
