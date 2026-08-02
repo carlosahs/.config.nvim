@@ -40,20 +40,6 @@ function _tmux_toggle()
   tmux:toggle()
 end
 
-function _copilot_toggle()
-  local cwd = vim.fn.getcwd()
-  local copilot = terminals.copilot[cwd]
-  if copilot == nil then
-    copilot = Terminal:new({
-      cmd = "copilot",
-      hidden = true,
-      on_open = _on_open,
-    })
-    terminals.copilot[cwd] = copilot
-  end
-  copilot:toggle()
-end
-
 vim.keymap.set(
   "n",
   "<leader>lh",
@@ -66,10 +52,3 @@ vim.keymap.set(
   "<cmd>lua _tmux_toggle()<CR>",
   { noremap = true, silent = true }
 )
-vim.keymap.set(
-  "n",
-  "<leader>lk",
-  "<cmd>lua _copilot_toggle()<CR>",
-  { noremap = true, silent = true }
-)
-
