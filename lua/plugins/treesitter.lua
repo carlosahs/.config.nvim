@@ -15,9 +15,13 @@ return {
       :totable()
     require("nvim-treesitter").install(parsersToInstall)
     vim.api.nvim_create_autocmd("FileType", {
-      callback = function()
+      callback = function(args)
         pcall(vim.treesitter.start)
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        filetype = args.match
+        -- Disable TreeSitter indenting for TypeScript.
+        if filetype ~= "typescript" then
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
       end,
     })
   end,

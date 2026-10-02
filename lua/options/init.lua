@@ -7,4 +7,6 @@ vim.o.hlsearch = true
 vim.o.completeopt = "menu,menuone,noinsert"
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣", leadmultispace = "↦ " }
+-- let TreeSitter handle the indentation.
+vim.opt.autoindent = false
 
